@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: jpa_test
+  datasource:
+    url: jdbc:mysql://localhost:3306/menudb
+    username: sh
+    password: sh
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    root: info
+    com.sh : debug
+
+server:
+  servlet:
+    context-path: /app

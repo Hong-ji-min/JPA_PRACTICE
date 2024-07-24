@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+	<title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">메뉴 상세보기</title>
+</head>
+<body>
+<main layout:fragment="main" class="container">
+	<div class="card mt-5"> <!--/* mt = margin top */-->
+		<div class="card-header">
+			메뉴 상세보기
+		</div>
+		<div class="card-body" th:object="${menu}">
+			<h5 class="card-title" th:text="*{menuName}">메뉴명</h5>
+			<p class="card-text" th:text="*{#numbers.formatInteger(menuPrice, 3, 'COMMA')}">메뉴가격</p>
+			<p class="card-text" th:text="*{categoryCode}">카테고리코드</p>
+			<p class="card-text" th:text="*{orderableStatus}">주문가능여부</p>
+			<a th:href="@{/menu/list}" class="btn btn-primary">목록보기</a>
+		</div>
+	</div>
+</main>
+</body>
+</html>

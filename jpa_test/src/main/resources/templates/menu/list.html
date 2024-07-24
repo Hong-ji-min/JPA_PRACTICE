@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+	<title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">메뉴 조회</title>
+</head>
+<body>
+<main layout:fragment="main" class="container">
+
+	<h2 class="m-3">전체 메뉴 조회</h2>
+
+	<!--        table>thead>tr>th*5-->
+	<table class="table"> <!--/* 표형식으로 구조화되어 보여준다. */-->
+		<thead>
+		<tr>
+			<th>메뉴코드</th>
+			<th>메뉴명</th>
+			<th>메뉴가격</th>
+			<th>카테고리코드</th>
+			<th>주문가능여부</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="menu, stat : ${menus}" th:object="${menu}">
+			<td th:text="*{menuCode}"></td>
+			<td>
+				<a th:href="@{|/menu/detail/*{menuCode}|}" th:text="*{menuName}"></a>
+			</td>
+			<td th:text="*{#numbers.formatInteger(menuPrice, 3, 'COMMA')}"></td>
+			<td th:text="*{categoryCode}"></td>
+			<td th:text="*{orderableStatus}"></td>
+		</tr>
+		</tbody>
+	</table>
+</main>
+
+<script layout:fragment="js">
+    const message = `[[${message}]]`; // RedirectAttributes#addAttributes에 담긴 속성
+    message && alert(message); // 자바스크립트에서는 이거를 할 수 없움.,.직접 적어야한대 아오아ㅘㅁ라아ㅗ라몰
+</script>
+</body>
+</html>
