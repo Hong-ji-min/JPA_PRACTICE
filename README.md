@@ -1,0 +1,2 @@
+# JPA_PRACTICE
+JPA 연습입니다.
