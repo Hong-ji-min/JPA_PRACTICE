@@ -16,8 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/menu")
 @RequiredArgsConstructor
 public class MenuController {
-
-    private final MenuQueryService menuQueryService;
     private final MenuCommandService menuCommandService;
 
 
